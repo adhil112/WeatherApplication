@@ -7,7 +7,6 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface WeatherDao {
-    // Add all queries to interface with the database
     @Query("SELECT * from favourite_tbl")
     fun getFavourites(): Flow<List<Favourite>>
 

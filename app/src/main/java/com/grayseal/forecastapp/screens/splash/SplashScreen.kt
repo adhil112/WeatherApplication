@@ -34,7 +34,7 @@ fun SplashScreen(navController: NavController) {
         }))
         delay(1000L)
         navController.popBackStack()
-        navController.navigate(route = BottomNavItem.Forecast.route + "/$defaultCity")
+        navController.navigate(route = BottomNavItem.Home.route + "/$defaultCity")
     })
 
     Surface {

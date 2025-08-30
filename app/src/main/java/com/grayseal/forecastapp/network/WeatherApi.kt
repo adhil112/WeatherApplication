@@ -8,7 +8,6 @@ import retrofit2.http.Query
 import javax.inject.Singleton
 
 
-// To prevent creation of different instances of itself
 @Singleton
 interface WeatherApi {
     @GET(value = "data/2.5/forecast")

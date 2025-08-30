@@ -32,8 +32,7 @@ fun CustomDialog(
         Box(
             modifier = Modifier
                 .padding(top = 20.dp, bottom = 20.dp)
-                // .width(300.dp)
-                // .height(164.dp)
+
                 .background(
                     color = MaterialTheme.colorScheme.onPrimary,
                     shape = RoundedCornerShape(25.dp, 25.dp, 25.dp, 25.dp)
@@ -46,7 +45,7 @@ fun CustomDialog(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
 
-                // title
+
                 Text(
                     text = title!!,
                     textAlign = TextAlign.Center,
@@ -59,7 +58,7 @@ fun CustomDialog(
                     color = Color(0xFF23224a),
                 )
                 Spacer(modifier = Modifier.height(8.dp))
-                // description
+
                 Text(
                     text = desc!!,
                     textAlign = TextAlign.Center,
@@ -70,10 +69,10 @@ fun CustomDialog(
                     style = MaterialTheme.typography.bodyLarge,
                     color = Color(0xFF23224a),
                 )
-                // Spacer
+
                 Spacer(modifier = Modifier.height(24.dp))
 
-                // OK button
+
                 val cornerRadius = 16.dp
                 val gradientColors = listOf(Color(0xFF0b123a), Color(0xFF2596be))
                 val roundedCornerShape = RoundedCornerShape(topStart = 30.dp, bottomEnd = 30.dp)

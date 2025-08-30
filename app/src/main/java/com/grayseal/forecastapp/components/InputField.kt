@@ -25,7 +25,6 @@ import com.grayseal.forecastapp.ui.theme.poppinsFamily
 
 @Composable
 fun InputField(
-    // Make a modifier optional
     modifier: Modifier = Modifier,
     valueState: MutableState<String>,
     labelId: String,

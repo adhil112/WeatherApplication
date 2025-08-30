@@ -400,7 +400,6 @@ fun ShowData(
 
         }
     } else {
-        // Latitude and longitude are not valid, show empty mainScreen
         Column(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
@@ -422,12 +421,8 @@ suspend fun getLocationName(
     latitude: MutableState<Double>,
     longitude: MutableState<Double>
 ): String {
-    // To specify that the geocoding operation should be performed on the IO dispatcher
     return withContext(Dispatchers.IO) {
-        /*
-        withContext function will automatically suspend the current coroutine and resume it
-        when the operation is complete, allowing other operations to be performed in the meantime
-         */
+
         val geocoder = Geocoder(context, Locale.getDefault())
         val addresses = geocoder.getFromLocation(latitude.value, longitude.value, 1)
         var locationName = ""
@@ -450,7 +445,6 @@ private fun fetchLocation(
 ) {
     when {
         locationPermissionsState.revokedPermissions.size <= 1 -> {
-            // Has permission at least one permission [coarse or fine]
             context.createLocationRequest(
                 settingsLauncher = settingsLauncher,
                 fusedLocationClient = fusedLocationProviderClient,

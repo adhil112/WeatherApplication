@@ -205,12 +205,8 @@ suspend fun getLocationName(
     latitude: MutableState<Double>,
     longitude: MutableState<Double>
 ): String {
-    // To specify that the geocoding operation should be performed on the IO dispatcher
     return withContext(Dispatchers.IO) {
-        /*
-        withContext function will automatically suspend the current coroutine and resume it
-        when the operation is complete, allowing other operations to be performed in the meantime
-         */
+
         val geocoder = Geocoder(context, Locale.getDefault())
         val addresses = geocoder.getFromLocation(latitude.value, longitude.value, 1)
         var locationName: String = ""
@@ -227,7 +223,6 @@ fun getLatLon(context: Context, cityName: String): Address? {
         val addresses = geocoder.getFromLocationName(cityName, 1)
         addresses!![0]
     } catch (e: Exception) {
-        // Toast.makeText(context, "Unknown Location", Toast.LENGTH_SHORT).show()
         null
     }
 }

@@ -25,7 +25,6 @@ import com.grayseal.forecastapp.ui.theme.ForecastApplicationTheme
 import com.grayseal.forecastapp.ui.theme.poppinsFamily
 import dagger.hilt.android.AndroidEntryPoint
 
-// For dagger to know that this is where we start using and connecting all the dependencies that the project may have
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
@@ -50,7 +49,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun WeatherApp(context: Context) {
     ForecastApplicationTheme {
-        // A surface container using the 'background' color from the theme
         Surface(
             modifier = Modifier.fillMaxSize(),
             color = colors.primary
@@ -63,7 +61,6 @@ fun WeatherApp(context: Context) {
 @Composable
 fun NoConnection(context: Context) {
     ForecastApplicationTheme {
-        // A surface container using the 'background' color from the theme
         Surface(
             modifier = Modifier.fillMaxSize(),
             color = colors.primary
@@ -85,18 +82,15 @@ fun NoConnection(context: Context) {
                 Spacer(modifier = Modifier.height(20.dp))
                 androidx.compose.material3.TextButton(
                     onClick = {
-                        // Check internet connection and refresh app
                         val connectivityManager =
                             context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
                         val activeNetwork: NetworkInfo? = connectivityManager.activeNetworkInfo
                         val isConnected: Boolean = activeNetwork?.isConnected == true
                         if (isConnected) {
-                            // Update the app's content to display the WeatherApp composable
                             (context as MainActivity).setContent {
                                 WeatherApp(context)
                             }
                         } else {
-                            // Update the app's content to display the NoConnection composable
                             (context as MainActivity).setContent {
                                 NoConnection(context)
                             }

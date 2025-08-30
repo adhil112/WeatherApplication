@@ -6,7 +6,6 @@ import com.grayseal.forecastapp.model.WeatherData
 import com.grayseal.forecastapp.network.WeatherApi
 import javax.inject.Inject
 
-/*To allow getting the weather data from the WeatherAPI*/
 class WeatherRepository @Inject constructor(private val api: WeatherApi) {
     suspend fun getWeather(
         latQuery: Double,

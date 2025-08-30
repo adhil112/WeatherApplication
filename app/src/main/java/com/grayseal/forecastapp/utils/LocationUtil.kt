@@ -205,7 +205,6 @@ fun Context.createLocationRequest(
                     IntentSenderRequest.Builder(exception.resolution).build()
                 )
             } catch (e: Exception) {
-                // Ignore the error.
             }
         }
     }

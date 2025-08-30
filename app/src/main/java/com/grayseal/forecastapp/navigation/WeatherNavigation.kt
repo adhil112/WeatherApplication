@@ -29,7 +29,7 @@ fun WeatherNavigation(context: Context) {
         composable(Screen.Splash.route) {
             SplashScreen(navController = navController)
         }
-        val route = BottomNavItem.Forecast.route
+        val route = BottomNavItem.Home.route
         composable("$route/{city}", arguments = listOf(navArgument(name = "city") {
             type = NavType.StringType
         })) { navBack ->
